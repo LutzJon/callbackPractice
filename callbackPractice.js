@@ -24,7 +24,11 @@ and what you should write is the sayHi function that makes the code above work,
 
 
 
-  //Code Here for first
+  function first(info, cb){
+  var s= info[0];
+  cb(s)
+
+  }
   
 
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
@@ -39,7 +43,10 @@ first(names, function(firstName){
 
 
 
-  //Code Here for last
+  function last(info, cb){
+    var lastName = info[info.length -1];
+    cb(lastName);
+  }
 
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
 last(names, function(lastName){
@@ -56,8 +63,10 @@ last(names, function(lastName){
 
 
 
-
-  //Code Here for multiply
+function multiply(num1, num2, func){
+num1 =num1 * num2;
+func(num1)
+}
 
 multiply(4, 3, function(answer){
   console.log('The answer is ' + answer); //should console.log 12
@@ -71,9 +80,17 @@ multiply(4, 3, function(answer){
 
 
 
-
-
+function contains(a,b,c){
+var result;
+if( a.indexOf(b) === -1) {
+  result = false;
+} else { 
+  result = true;
+}
+c(result)
   //Code Here for contains
+}
+}
 
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
 contains(names, 'Colt', function(result){
@@ -92,8 +109,16 @@ contains(names, 'Colt', function(result){
 
 
 
+function uniq(a,cb) {
+  var bb = [a[]];
+  for(var i=1; i<a.length; i++) {
+    if(bb.indexOf(arr[i]) === -1) {
+      bb.push(a[i]);
 
-    //Code Here for uniq
+    }
+  }
+  cb(bb);
+}
 
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
 uniq(names, function(uniqArr){
@@ -107,10 +132,30 @@ uniq(names, function(uniqArr){
 /* NEXT PROBLEM ---- NEXT PROBLEM ---- NEXT PROBLEM ---- NEXT PROBLEM */
 
 
+/*
+wrong you fool !
+function each(names, item, cb){
+var a = "";
+var b = -1;
+for(var i=0; i<names.length; i++) {
+  if (names[i] === item) {
+    a= item;
+    b=i
+  } 
+}
+ca(a,b)
+}
 
-
-    //Code Here for each
-
+*/
+function each(arr,cb) {
+var ind, item;
+for(var i=0; i<arr.length; i++) {
+  ind =i;
+  item = arr[i];
+  cd(item,ind);
+  }
+}
+  
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
 each(names, function(item, indice){
   console.log('The item in the ' + indice + ' position is ' + item)
@@ -124,6 +169,15 @@ each(names, function(item, indice){
 
 
 
+function getUserById(source, id, cb) {
+  var yup = {};
+  for (var i = 0; i < source.length; i++) {
+    if (source[i].id === id) {
+     yup = source[i];
+    }
+  }
+  cb(yup);
+}
 
 
  //code here for getUserById
